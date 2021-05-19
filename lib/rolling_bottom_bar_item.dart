@@ -11,7 +11,8 @@ class RollingBottomBarItem {
 }
 
 class RollingItem extends StatelessWidget {
-  const RollingItem(this.index, {this.iconData, this.label, this.color, this.onTap});
+  const RollingItem(this.index,
+      {this.iconData, this.label, this.color, this.onTap});
 
   final int index;
   final IconData iconData;

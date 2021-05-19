@@ -9,7 +9,7 @@ class RollingPainter extends CustomPainter {
           ..color = color ?? Colors.white
           ..isAntiAlias = true,
         _shadowColor = Colors.grey.shade600;
-            // kIsWeb ? Colors.grey.shade600 : Colors.grey.withOpacity(0.4);
+  // kIsWeb ? Colors.grey.shade600 : Colors.grey.withOpacity(0.4);
 
   final double x;
   final Color color;
