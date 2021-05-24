@@ -4,7 +4,7 @@ This packages, based on this [demo](https://codepen.io/kaboc/pen/eYJbbop) by [Ka
 
 ## Demo
 
-<img src="https://github.com/ajomuch92/rolling-bottom-bar-flutter/blob/master/assets/demo.gif" width="300" />
+<img src="https://raw.githubusercontent.com/ajomuch92/rolling-bottom-bar-flutter/master/assets/demo.gif" width="300" />
 
 ## Instalation
 Include `rolling_bottom_bar` in your `pubspec.yaml` file:
