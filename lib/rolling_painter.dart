@@ -83,7 +83,6 @@ class RollingPainter extends CustomPainter {
       ..drawPath(path, _paint);
   }
 
-
   /// Function used to draw the circular indicator
   void _drawCircle(Canvas canvas) {
     final path = Path()

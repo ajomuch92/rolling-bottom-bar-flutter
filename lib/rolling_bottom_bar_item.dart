@@ -91,7 +91,7 @@ class RollingActiveItem extends StatelessWidget {
 
   /// Boolean value to indicate if rotate effect will be triggered
   final bool enableRotation;
-  
+
   /// Function called when an item was tapped
   final ValueChanged<int> onTap;
 
