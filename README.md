@@ -1,6 +1,6 @@
 # Rolling Bottom Bar
 
-This packages, base on this [demo](https://codepen.io/kaboc/pen/eYJbbop) by [Kabo](https://codepen.io/kaboc) show a bottom bar with a dynamic ball indicator
+This packages, based on this [demo](https://codepen.io/kaboc/pen/eYJbbop) by [Kabo](https://codepen.io/kaboc) showing a bottom bar with a dynamic ball indicator.
 
 ## Demo
 
