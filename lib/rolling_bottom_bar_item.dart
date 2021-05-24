@@ -10,14 +10,24 @@ class RollingBottomBarItem {
   final String label;
 }
 
+/// Class to generate the unactive icon on bottom bar
 class RollingItem extends StatelessWidget {
   const RollingItem(this.index,
       {this.iconData, this.label, this.color, this.onTap});
 
+  /// Int value to indicate the index on app bar
   final int index;
+
+  /// Value necessary to render the icon
   final IconData iconData;
+
+  /// String to indicate the label item
   final String label;
+
+  /// Value to indicate the icon color
   final Color color;
+
+  /// Function called when an item was tapped
   final ValueChanged<int> onTap;
 
   @override
@@ -56,6 +66,7 @@ class RollingItem extends StatelessWidget {
   }
 }
 
+/// Class to generate the active icon on bottom bar
 class RollingActiveItem extends StatelessWidget {
   const RollingActiveItem(
     this.index, {
@@ -66,11 +77,22 @@ class RollingActiveItem extends StatelessWidget {
     this.onTap,
   });
 
+  /// Int value to indicate the index on app bar
   final int index;
+
+  /// Value necessary to render the icon
   final IconData iconData;
+
+  /// Value to indicate the icon color
   final Color color;
+
+  /// Double value to indicate the item position
   final double scrollPosition;
+
+  /// Boolean value to indicate if rotate effect will be triggered
   final bool enableRotation;
+  
+  /// Function called when an item was tapped
   final ValueChanged<int> onTap;
 
   @override

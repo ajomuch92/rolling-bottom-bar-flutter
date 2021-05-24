@@ -3,6 +3,7 @@ library rolling_bottom_bar;
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
+/// Class to generate the moving ball
 class RollingPainter extends CustomPainter {
   RollingPainter({@required this.x, this.color})
       : _paint = Paint()
@@ -11,9 +12,16 @@ class RollingPainter extends CustomPainter {
         _shadowColor = Colors.grey.shade600;
   // kIsWeb ? Colors.grey.shade600 : Colors.grey.withOpacity(0.4);
 
+  /// Double value to indicate the position to move the ball
   final double x;
+
+  /// Color for the toolbar
   final Color color;
+
+  /// Paint value to custom painter
   final Paint _paint;
+
+  /// Color value to bar shadows
   final Color _shadowColor;
 
   @override
@@ -75,6 +83,8 @@ class RollingPainter extends CustomPainter {
       ..drawPath(path, _paint);
   }
 
+
+  /// Function used to draw the circular indicator
   void _drawCircle(Canvas canvas) {
     final path = Path()
       ..addArc(
