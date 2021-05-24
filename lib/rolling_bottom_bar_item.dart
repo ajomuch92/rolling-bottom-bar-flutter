@@ -45,14 +45,14 @@ class RollingItem extends StatelessWidget {
               Icon(
                 iconData,
                 size: kItemSize - 4,
-                color: color ?? Colors.grey.shade700,
+                color: color ?? Colors.grey[700],
               ),
               if (label != null) ...[
                 const SizedBox(height: 3.0),
                 Text(
                   label,
                   style: TextStyle(
-                    color: color ?? Colors.grey.shade700,
+                    color: color ?? Colors.grey[700],
                     fontSize: 12.0,
                   ),
                 ),
@@ -100,7 +100,7 @@ class RollingActiveItem extends StatelessWidget {
     final icon = Icon(
       iconData,
       size: kItemSize,
-      color: color ?? Colors.grey.shade700,
+      color: color ?? Colors.grey[700],
     );
 
     return InkWell(
