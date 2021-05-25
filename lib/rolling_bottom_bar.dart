@@ -8,32 +8,32 @@ import 'package:rolling_bottom_bar/rolling_painter.dart';
 /// Class to generate the rolling bottom bar
 class RollingBottomBar extends StatefulWidget {
   /// Controller for animation
-  final PageController controller;
+  final PageController? controller;
 
   /// List of items to render into the bottom bar
-  final List<RollingBottomBarItem> items;
+  final List<RollingBottomBarItem>? items;
 
   /// Function called when an item was tapped
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
 
   /// Color to paint the custom paint and draw the bottom bar
   final Color color;
 
   /// Color to indicate the unactive item
-  final Color itemColor;
+  final Color? itemColor;
 
   /// Color to indicate the active item
-  final Color activeItemColor;
+  final Color? activeItemColor;
 
   /// Boolean value to indicate if rotate effect will be triggered
-  final bool enableIconRotation;
+  final bool? enableIconRotation;
 
   RollingBottomBar({
-    Key key,
+    Key? key,
     @required this.controller,
     @required this.items,
     @required this.onTap,
-    this.color,
+    this.color = Colors.white,
     this.itemColor,
     this.activeItemColor,
     this.enableIconRotation,
@@ -44,7 +44,7 @@ class RollingBottomBar extends StatefulWidget {
 }
 
 class _RollingBottomBarState extends State<RollingBottomBar> {
-  double _screenWidth;
+  double? _screenWidth;
 
   @override
   void didChangeDependencies() {
@@ -59,17 +59,17 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
     const height = kHeight + kMargin * 2;
 
     return AnimatedBuilder(
-      animation: widget.controller,
-      builder: (_, child) {
+      animation: widget.controller!,
+      builder: (BuildContext _, Widget? child) {
         double _scrollPosition = 0.0;
         int _currentIndex = 0;
         if (widget.controller?.hasClients ?? false) {
-          _scrollPosition = widget.controller.page;
-          _currentIndex = (widget.controller.page + 0.5).toInt();
+          _scrollPosition = widget.controller!.page!;
+          _currentIndex = (widget.controller!.page! + 0.5).toInt();
         }
 
         return Stack(
-          overflow: Overflow.visible,
+          clipBehavior: Clip.none,
           children: <Widget>[
             CustomPaint(
               size: Size(width, height),
@@ -78,14 +78,14 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
                 color: widget.color,
               ),
             ),
-            for (var i = 0; i < widget.items.length; i++) ...[
+            for (var i = 0; i < widget.items!.length; i++) ...[
               if (i == _currentIndex)
                 Positioned(
                   top: kMargin - kCircleRadius + 8.0,
                   left: kCircleMargin + _itemXByScrollPosition(_scrollPosition),
                   child: RollingActiveItem(
                     i,
-                    iconData: widget.items[i].iconData,
+                    iconData: widget.items![i].iconData,
                     color: widget.activeItemColor,
                     scrollPosition: _scrollPosition,
                     enableRotation: widget.enableIconRotation,
@@ -98,8 +98,8 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
                   left: kCircleMargin + _itemXByIndex(i),
                   child: RollingItem(
                     i,
-                    iconData: widget.items[i].iconData,
-                    label: widget.items[i].label,
+                    iconData: widget.items![i].iconData,
+                    label: widget.items![i].label,
                     color: widget.itemColor,
                     onTap: widget.onTap,
                   ),
@@ -112,18 +112,18 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
   }
 
   double _firstItemX() {
-    return kMargin + (_screenWidth - kMargin * 2) * 0.1;
+    return kMargin + (_screenWidth! - kMargin * 2) * 0.1;
   }
 
   double _lastItemX() {
-    return _screenWidth -
+    return _screenWidth! -
         kMargin -
-        (_screenWidth - kMargin * 2) * 0.1 -
+        (_screenWidth! - kMargin * 2) * 0.1 -
         (kCircleRadius + kCircleMargin) * 2;
   }
 
   double _itemDistance() {
-    return (_lastItemX() - _firstItemX()) / (widget.items.length - 1);
+    return (_lastItemX() - _firstItemX()) / (widget.items!.length - 1);
   }
 
   double _itemXByScrollPosition(double scrollPosition) {

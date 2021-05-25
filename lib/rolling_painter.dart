@@ -13,16 +13,16 @@ class RollingPainter extends CustomPainter {
   // kIsWeb ? Colors.grey.shade600 : Colors.grey.withOpacity(0.4);
 
   /// Double value to indicate the position to move the ball
-  final double x;
+  final double? x;
 
   /// Color for the toolbar
-  final Color color;
+  final Color? color;
 
   /// Paint value to custom painter
-  final Paint _paint;
+  final Paint? _paint;
 
   /// Color value to bar shadows
-  final Color _shadowColor;
+  final Color? _shadowColor;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -43,7 +43,7 @@ class RollingPainter extends CustomPainter {
 
     final path = Path()
       ..moveTo(left + kTopRadius, top)
-      ..lineTo(x - kTopRadius, top)
+      ..lineTo(x! - kTopRadius, top)
       ..relativeArcToPoint(
         const Offset(kTopRadius, kTopRadius),
         radius: const Radius.circular(kTopRadius),
@@ -79,8 +79,8 @@ class RollingPainter extends CustomPainter {
       );
 
     canvas
-      ..drawShadow(path, _shadowColor, 5.0, false)
-      ..drawPath(path, _paint);
+      ..drawShadow(path, _shadowColor!, 5.0, true)
+      ..drawPath(path, _paint!);
   }
 
   /// Function used to draw the circular indicator
@@ -89,7 +89,7 @@ class RollingPainter extends CustomPainter {
       ..addArc(
         Rect.fromCircle(
           center: Offset(
-            x + kCircleMargin + kCircleRadius,
+            x! + kCircleMargin + kCircleRadius,
             kMargin + kCircleMargin,
           ),
           radius: kCircleRadius,
@@ -99,7 +99,7 @@ class RollingPainter extends CustomPainter {
       );
 
     canvas
-      ..drawShadow(path, _shadowColor, 3.0, false)
-      ..drawPath(path, _paint);
+      ..drawShadow(path, _shadowColor!, 3.0, false)
+      ..drawPath(path, _paint!);
   }
 }

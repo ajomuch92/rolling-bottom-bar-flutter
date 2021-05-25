@@ -6,8 +6,8 @@ import 'constants.dart';
 class RollingBottomBarItem {
   const RollingBottomBarItem(this.iconData, {this.label});
 
-  final IconData iconData;
-  final String label;
+  final IconData? iconData;
+  final String? label;
 }
 
 /// Class to generate the unactive icon on bottom bar
@@ -19,16 +19,16 @@ class RollingItem extends StatelessWidget {
   final int index;
 
   /// Value necessary to render the icon
-  final IconData iconData;
+  final IconData? iconData;
 
   /// String to indicate the label item
-  final String label;
+  final String? label;
 
   /// Value to indicate the icon color
-  final Color color;
+  final Color? color;
 
   /// Function called when an item was tapped
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class RollingItem extends StatelessWidget {
               if (label != null) ...[
                 const SizedBox(height: 3.0),
                 Text(
-                  label,
+                  label!,
                   style: TextStyle(
                     color: color ?? Colors.grey[700],
                     fontSize: 12.0,
@@ -59,7 +59,7 @@ class RollingItem extends StatelessWidget {
               ],
             ],
           ),
-          onPressed: () => onTap(index),
+          onPressed: () => onTap!(index),
         ),
       ),
     );
@@ -81,19 +81,19 @@ class RollingActiveItem extends StatelessWidget {
   final int index;
 
   /// Value necessary to render the icon
-  final IconData iconData;
+  final IconData? iconData;
 
   /// Value to indicate the icon color
-  final Color color;
+  final Color? color;
 
   /// Double value to indicate the item position
-  final double scrollPosition;
+  final double? scrollPosition;
 
   /// Boolean value to indicate if rotate effect will be triggered
-  final bool enableRotation;
+  final bool? enableRotation;
 
   /// Function called when an item was tapped
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -108,12 +108,12 @@ class RollingActiveItem extends StatelessWidget {
         size: const Size(kCircleRadius * 2, kCircleRadius * 2),
         child: enableRotation ?? false
             ? Transform.rotate(
-                angle: kPi * 2 * (scrollPosition % 1),
+                angle: kPi * 2 * (scrollPosition! % 1),
                 child: icon,
               )
             : icon,
       ),
-      onTap: () => onTap(index),
+      onTap: () => onTap!(index),
     );
   }
 }

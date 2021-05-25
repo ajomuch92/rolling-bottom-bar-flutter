@@ -17,19 +17,19 @@ class RollingIcon extends StatelessWidget {
   final int index;
 
   /// Value necessary to render the icon
-  final IconData iconData;
+  final IconData? iconData;
 
   /// Color to draw the icon
-  final Color color;
+  final Color? color;
 
   /// Double value to indicate the position
-  final double scrollPosition;
+  final double? scrollPosition;
 
   /// Bool value to indicate if rotation effect will be triggered
-  final bool enableRotation;
+  final bool? enableRotation;
 
   /// Function call when tap the icon with the index value as callback value
-  final ValueChanged<int> onTap;
+  final ValueChanged<int>? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +44,12 @@ class RollingIcon extends StatelessWidget {
         size: const Size(kCircleRadius * 2, kCircleRadius * 2),
         child: enableRotation ?? false
             ? Transform.rotate(
-                angle: kPi * 2 * (scrollPosition % 1),
+                angle: kPi * 2 * (scrollPosition! % 1),
                 child: icon,
               )
             : icon,
       ),
-      onTap: () => onTap(index),
+      onTap: () => onTap!(index),
     );
   }
 }
