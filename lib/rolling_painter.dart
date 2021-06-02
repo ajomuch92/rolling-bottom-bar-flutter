@@ -5,7 +5,7 @@ import 'constants.dart';
 
 /// Class to generate the moving ball
 class RollingPainter extends CustomPainter {
-  RollingPainter({@required this.x, this.color})
+  RollingPainter({@required this.x, this.color, this.flat})
       : _paint = Paint()
           ..color = color ?? Colors.white
           ..isAntiAlias = true,
@@ -23,6 +23,9 @@ class RollingPainter extends CustomPainter {
 
   /// Color value to bar shadows
   final Color? _shadowColor;
+
+  /// Boolean value to indicate if the bottom bar has shadow or not
+  final bool? flat;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -78,9 +81,10 @@ class RollingPainter extends CustomPainter {
         radius: const Radius.circular(kTopRadius),
       );
 
-    canvas
-      ..drawShadow(path, _shadowColor!, 5.0, true)
-      ..drawPath(path, _paint!);
+    if (!this.flat!) {
+      canvas..drawShadow(path, _shadowColor!, 5.0, true);
+    }
+    canvas..drawPath(path, _paint!);
   }
 
   /// Function used to draw the circular indicator

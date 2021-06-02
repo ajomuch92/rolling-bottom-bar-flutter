@@ -28,16 +28,20 @@ class RollingBottomBar extends StatefulWidget {
   /// Boolean value to indicate if rotate effect will be triggered
   final bool? enableIconRotation;
 
-  RollingBottomBar({
-    Key? key,
-    @required this.controller,
-    @required this.items,
-    @required this.onTap,
-    this.color = Colors.white,
-    this.itemColor,
-    this.activeItemColor,
-    this.enableIconRotation,
-  }) : super(key: key);
+  /// Boolean value to indicate if the bottom bar has shadow or not
+  final bool? flat;
+
+  RollingBottomBar(
+      {Key? key,
+      @required this.controller,
+      @required this.items,
+      @required this.onTap,
+      this.color = Colors.white,
+      this.itemColor,
+      this.activeItemColor,
+      this.enableIconRotation,
+      this.flat = false})
+      : super(key: key);
 
   @override
   _RollingBottomBarState createState() => _RollingBottomBarState();
@@ -74,9 +78,9 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
             CustomPaint(
               size: Size(width, height),
               painter: RollingPainter(
-                x: _itemXByScrollPosition(_scrollPosition),
-                color: widget.color,
-              ),
+                  x: _itemXByScrollPosition(_scrollPosition),
+                  color: widget.color,
+                  flat: widget.flat),
             ),
             for (var i = 0; i < widget.items!.length; i++) ...[
               if (i == _currentIndex)

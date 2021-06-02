@@ -1,6 +1,6 @@
 name: rolling_bottom_bar
 description: Package to show a dynamic bottom bar with a ball as indicator.
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/ajomuch92/rolling-bottom-bar-flutter
 
 environment:

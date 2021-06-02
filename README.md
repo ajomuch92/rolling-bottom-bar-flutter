@@ -85,4 +85,5 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 | itemColor  | Color value to use with inactive items | False   |  Colors.grey[700] |
 | activeItemColor  | Color value to use with active items | False   |  Colors.grey[700]  |
 | enableIconRotation  | Boolean value to indicate when rotation effect is triggered | False   | false  |
+| falt  | Boolean value to indicate if the bottom bar has shadow or not | False   | false  |
 

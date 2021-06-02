@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       extendBody: true,
       bottomNavigationBar: RollingBottomBar(
         controller: _controller,
+        flat: true,
         items: [
           RollingBottomBarItem(Icons.home, label: 'Page 1'),
           RollingBottomBarItem(Icons.star, label: 'Page 2'),
