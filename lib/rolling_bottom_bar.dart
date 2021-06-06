@@ -30,7 +30,7 @@ class RollingBottomBar extends StatefulWidget {
 
   /// Boolean value to indicate if the bottom bar has shadow or not
   final bool? flat;
-  
+
   /// Boolean value to indicate when to use individual active color for each child
   final bool? useActiveColorByDefault;
 
@@ -94,7 +94,9 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
                   child: RollingActiveItem(
                     i,
                     iconData: widget.items![i].iconData,
-                    color: widget.useActiveColorByDefault!? widget.activeItemColor: widget.items![i].activeColor,
+                    color: widget.useActiveColorByDefault!
+                        ? widget.activeItemColor
+                        : widget.items![i].activeColor,
                     scrollPosition: _scrollPosition,
                     enableRotation: widget.enableIconRotation,
                     onTap: widget.onTap,

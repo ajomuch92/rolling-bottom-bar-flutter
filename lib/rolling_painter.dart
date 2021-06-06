@@ -104,7 +104,6 @@ class RollingPainter extends CustomPainter {
     if (!this.flat!) {
       canvas..drawShadow(path, _shadowColor!, 5.0, true);
     }
-    canvas
-      ..drawPath(path, _paint!);
+    canvas..drawPath(path, _paint!);
   }
 }

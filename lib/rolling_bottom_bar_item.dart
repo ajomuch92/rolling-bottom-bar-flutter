@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class RollingBottomBarItem {
-  const RollingBottomBarItem(this.iconData, {this.label, this.activeColor = Colors.green});
+  const RollingBottomBarItem(this.iconData,
+      {this.label, this.activeColor = Colors.green});
 
   /// IconData necesary to render the icon
   final IconData? iconData;
