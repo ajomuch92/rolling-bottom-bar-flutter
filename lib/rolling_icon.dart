@@ -9,7 +9,7 @@ class RollingIcon extends StatelessWidget {
     this.iconData,
     this.color,
     this.scrollPosition,
-    this.enableRotation,
+    this.enableRotation = false,
     this.onTap,
   });
 
@@ -42,7 +42,7 @@ class RollingIcon extends StatelessWidget {
     return InkWell(
       child: SizedBox.fromSize(
         size: const Size(kCircleRadius * 2, kCircleRadius * 2),
-        child: enableRotation ?? false
+        child: enableRotation!
             ? Transform.rotate(
                 angle: kPi * 2 * (scrollPosition! % 1),
                 child: icon,

@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class RollingBottomBarItem {
-  const RollingBottomBarItem(this.iconData, {this.label});
+  const RollingBottomBarItem(this.iconData, {this.label, this.activeColor = Colors.green});
 
+  /// IconData necesary to render the icon
   final IconData? iconData;
+
+  /// String to put the label for the icon
   final String? label;
+
+  /// Color to use when icon is active
+  final Color? activeColor;
 }
 
 /// Class to generate the unactive icon on bottom bar

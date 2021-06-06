@@ -2,6 +2,10 @@
 
 This packages, based on this [demo](https://codepen.io/kaboc/pen/eYJbbop) by [Kabo](https://codepen.io/kaboc) showing a bottom bar with a dynamic ball indicator.
 
+
+### New Features 💥
+* Capability to avoid the bottom bar shadow by flat property on false
+* Setting active color by each item define on color property of RollingBottomBarItem widget
 ## Demo
 
 <img src="https://raw.githubusercontent.com/ajomuch92/rolling-bottom-bar-flutter/master/assets/demo.gif" width="300" />
@@ -69,10 +73,11 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 
 ## Options for Rolling Bottom Bar Item use
 
-|  Name | Description   | Required   |
-| ------------ | ------------ | ------------ |
-| iconData  | IconData to use as item icon | True   |
-| label  | String to use as label item |  False  |
+|  Name | Description   | Required   | Default   |
+| ------------ | ------------ | ------------ | ------------ |
+| iconData  | IconData to use as item icon | True   | |
+| label  | String to use as label item |  False  | |
+| activeColor  | Color to use when icon is active. Only works with useActiveColorByDefault property of RollingBottomBarItem set on true |  False  | Colors.green|
 
 ## Options for Rolling Bottom Bar use
 
@@ -86,4 +91,5 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 | activeItemColor  | Color value to use with active items | False   |  Colors.grey[700]  |
 | enableIconRotation  | Boolean value to indicate when rotation effect is triggered | False   | false  |
 | flat  | Boolean value to indicate if the bottom bar has shadow or not | False   | false  |
+| useActiveColorByDefault  | Boolean value to indicate when to use individual active color for each child | False   | false  |
 
