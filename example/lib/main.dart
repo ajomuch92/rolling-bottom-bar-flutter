@@ -56,13 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: RollingBottomBar(
         controller: _controller,
         flat: true,
+        useActiveColorByDefault: false,
         items: [
-          RollingBottomBarItem(Icons.home, label: 'Page 1'),
-          RollingBottomBarItem(Icons.star, label: 'Page 2'),
-          RollingBottomBarItem(Icons.person, label: 'Page 3'),
-          RollingBottomBarItem(Icons.access_alarm, label: 'Page 4'),
+          RollingBottomBarItem(Icons.home, label: 'Page 1', activeColor: Colors.redAccent),
+          RollingBottomBarItem(Icons.star, label: 'Page 2', activeColor: Colors.blueAccent),
+          RollingBottomBarItem(Icons.person, label: 'Page 3', activeColor: Colors.yellowAccent),
+          RollingBottomBarItem(Icons.access_alarm, label: 'Page 4', activeColor: Colors.orangeAccent),
         ],
-        activeItemColor: Colors.green.shade700,
         enableIconRotation: true,
         onTap: (index) {
           _controller.animateToPage(

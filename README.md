@@ -88,8 +88,8 @@ import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
 | onTap  | Function triggered when an item is tapped | True   |   |
 | color  | Color value to use as background | False   |  Colors.white |
 | itemColor  | Color value to use with inactive items | False   |  Colors.grey[700] |
-| activeItemColor  | Color value to use with active items | False   |  Colors.grey[700]  |
+| activeItemColor  | Color value to use with active items | False   |  Colors.green  |
 | enableIconRotation  | Boolean value to indicate when rotation effect is triggered | False   | false  |
 | flat  | Boolean value to indicate if the bottom bar has shadow or not | False   | false  |
-| useActiveColorByDefault  | Boolean value to indicate when to use individual active color for each child | False   | false  |
+| useActiveColorByDefault  | Boolean value to indicate when to use individual active color for each child | False   | true  |
 
