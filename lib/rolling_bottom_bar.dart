@@ -44,7 +44,7 @@ class RollingBottomBar extends StatefulWidget {
       this.activeItemColor = Colors.green,
       this.enableIconRotation,
       this.flat = false,
-      this.useActiveColorByDefault = false})
+      this.useActiveColorByDefault = true})
       : super(key: key);
 
   @override
