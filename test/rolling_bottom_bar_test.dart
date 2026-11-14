@@ -8,6 +8,7 @@ Widget _app(int index, ValueChanged<int> onTap) => MaterialApp(
         bottomNavigationBar: RollingBottomBar(
           activeIndex: index,
           itemSize: RollingItemSize.sm,
+          itemSpacing: RollingItemSpacing.lg,
           onTap: onTap,
           items: const [
             RollingBottomBarItem(Icons.home, label: 'Home'),

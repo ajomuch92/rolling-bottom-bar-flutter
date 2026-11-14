@@ -17,6 +17,18 @@ enum RollingItemSize {
   final double radius;
 }
 
+/// Spacing between the items
+enum RollingItemSpacing {
+  sm(0.18),
+  md(0.1),
+  lg(0.03);
+
+  const RollingItemSpacing(this.inset);
+
+  /// Fraction of the bar width left empty at each side
+  final double inset;
+}
+
 /// Class to generate the rolling bottom bar
 class RollingBottomBar extends StatefulWidget {
   /// Controller for animation. If null, [activeIndex] is used instead
@@ -61,6 +73,9 @@ class RollingBottomBar extends StatefulWidget {
   /// Size of the ball indicator and the items
   final RollingItemSize itemSize;
 
+  /// Spacing between the items
+  final RollingItemSpacing itemSpacing;
+
   const RollingBottomBar({
     super.key,
     this.controller,
@@ -77,6 +92,7 @@ class RollingBottomBar extends StatefulWidget {
     this.bottomRadius = kBottomRadius,
     this.elevation = kElevation,
     this.itemSize = RollingItemSize.lg,
+    this.itemSpacing = RollingItemSpacing.md,
   });
 
   @override
@@ -165,12 +181,13 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
     );
   }
 
-  double _firstItemX() => kMargin + (_screenWidth - kMargin * 2) * 0.1;
+  double _firstItemX() =>
+      kMargin + (_screenWidth - kMargin * 2) * widget.itemSpacing.inset;
 
   double _lastItemX() =>
       _screenWidth -
       kMargin -
-      (_screenWidth - kMargin * 2) * 0.1 -
+      (_screenWidth - kMargin * 2) * widget.itemSpacing.inset -
       (_radius + kCircleMargin) * 2;
 
   double _itemX(double position) =>
