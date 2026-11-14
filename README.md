@@ -3,7 +3,10 @@
 This packages, based on this [demo](https://codepen.io/kaboc/pen/eYJbbop) by [Kabo](https://codepen.io/kaboc) showing a bottom bar with a dynamic ball indicator.
 
 
-### New Features 💥 (1.0.0)
+### New Features 💥 (1.1.0)
+* `itemSpacing` (`RollingItemSpacing.sm`, `.md`, `.lg`) to change the spacing between items
+
+### 1.0.0
 * `activeIndex` to control the bar without a `PageController` (the ball animates by itself)
 * `topRadius` and `bottomRadius` to customize the bar corners
 * `elevation` to customize the shadow
@@ -20,7 +23,7 @@ Include `rolling_bottom_bar` in your `pubspec.yaml` file:
 dependencies:
   flutter:
     sdk: flutter
-  rolling_bottom_bar: ^1.0.0
+  rolling_bottom_bar: ^1.1.0
 ```
 
 ## Usage
@@ -86,6 +89,7 @@ int _index = 0;
 bottomNavigationBar: RollingBottomBar(
   activeIndex: _index,
   itemSize: RollingItemSize.md,
+  itemSpacing: RollingItemSpacing.lg,
   topRadius: 12,
   bottomRadius: 20,
   elevation: 8,
@@ -124,4 +128,5 @@ bottomNavigationBar: RollingBottomBar(
 | bottomRadius  | Radius for the bottom corners of the bar | False   | 28.0  |
 | elevation  | Elevation of the bar shadow. Ignored when `flat` is true | False   | 5.0  |
 | itemSize  | Size of the ball and items: `RollingItemSize.sm` (22), `.md` (26) or `.lg` (30) | False   | RollingItemSize.lg  |
+| itemSpacing  | Spacing between items: `RollingItemSpacing.sm` (closer), `.md` or `.lg` (farther apart) | False   | RollingItemSpacing.md  |
 

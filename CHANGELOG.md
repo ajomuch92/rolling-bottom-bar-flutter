@@ -13,3 +13,6 @@
 * Breaking: `controller` is now optional; `items` and `onTap` are required.
 * Added `activeIndex` to use the bar without a `PageController`.
 * Added `topRadius`, `bottomRadius`, `elevation` and `itemSize` (sm, md, lg) properties.
+
+## [1.1.0] - 14/11/2026
+* Added `itemSpacing` (sm, md, lg) property to change the spacing between items.
