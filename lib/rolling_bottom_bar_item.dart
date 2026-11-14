@@ -20,7 +20,11 @@ class RollingBottomBarItem {
 /// Class to generate the unactive icon on bottom bar
 class RollingItem extends StatelessWidget {
   const RollingItem(this.index,
-      {this.iconData, this.label, this.color, this.onTap});
+      {this.iconData,
+      this.label,
+      this.color,
+      this.radius = kCircleRadius,
+      this.onTap});
 
   /// Int value to indicate the index on app bar
   final int index;
@@ -34,6 +38,9 @@ class RollingItem extends StatelessWidget {
   /// Value to indicate the icon color
   final Color? color;
 
+  /// Radius of the item circle
+  final double radius;
+
   /// Function called when an item was tapped
   final ValueChanged<int>? onTap;
 
@@ -42,29 +49,33 @@ class RollingItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: SizedBox.fromSize(
-        size: const Size(kCircleRadius * 2, kCircleRadius * 2),
+        size: Size.fromRadius(radius),
         child: RawMaterialButton(
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(0.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                iconData,
-                size: kItemSize - 4,
-                color: color ?? Colors.grey[700],
-              ),
-              if (label != null) ...[
-                const SizedBox(height: 3.0),
-                Text(
-                  label!,
-                  style: TextStyle(
-                    color: color ?? Colors.grey[700],
-                    fontSize: 12.0,
-                  ),
+          // scaleDown keeps icon + label inside small circles (sm)
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Icon(
+                  iconData,
+                  size: radius - 4,
+                  color: color ?? Colors.grey[700],
                 ),
+                if (label != null) ...[
+                  const SizedBox(height: 3.0),
+                  Text(
+                    label!,
+                    style: TextStyle(
+                      color: color ?? Colors.grey[700],
+                      fontSize: 12.0,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
           onPressed: () => onTap!(index),
         ),
@@ -81,6 +92,7 @@ class RollingActiveItem extends StatelessWidget {
     this.color,
     this.scrollPosition,
     this.enableRotation,
+    this.radius = kCircleRadius,
     this.onTap,
   });
 
@@ -99,6 +111,9 @@ class RollingActiveItem extends StatelessWidget {
   /// Boolean value to indicate if rotate effect will be triggered
   final bool? enableRotation;
 
+  /// Radius of the item circle
+  final double radius;
+
   /// Function called when an item was tapped
   final ValueChanged<int>? onTap;
 
@@ -106,13 +121,13 @@ class RollingActiveItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = Icon(
       iconData,
-      size: kItemSize,
+      size: radius,
       color: color ?? Colors.grey[700],
     );
 
     return InkWell(
       child: SizedBox.fromSize(
-        size: const Size(kCircleRadius * 2, kCircleRadius * 2),
+        size: Size.fromRadius(radius),
         child: enableRotation ?? false
             ? Transform.rotate(
                 angle: kPi * 2 * (scrollPosition! % 1),
